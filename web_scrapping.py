@@ -2,13 +2,16 @@ import threading
 import requests
 import time
 
-websites = ['https://www.python.org', 'https://www.google.com', 'https://www.wikipedia.com']
+websites = ['https://www.python.org', 'https://www.google.com', 'https://www.facebook.com']
 
 
 def web_scrapping(url):
-    # get response
-    response = requests.get(url)
-    print(f'Scrapped url: {url}, status: {response.status_code}')
+    try:
+        # get response
+        response = requests.get(url)
+        print(f'Scrapped url: {url}, status: {response.status_code}')
+    except Exception as e:
+        print(f'Could not scrap url: {url}, error: {e}')
 
 
 if __name__ == '__main__':
